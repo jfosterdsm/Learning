@@ -1,0 +1,18 @@
+---
+variables:
+  DIGOPS_STACKS_VERSION: 0.17.0
+
+
+stages:
+  - testing
+
+.digops_stacks:
+  image: "meredithdigops/digops-stacks:$DIGOPS_STACKS_VERSION"
+  tags:
+    - privileged
+
+thing1:
+  stage: testing
+  extends: .digops_stacks
+  script:
+    - echo It works
